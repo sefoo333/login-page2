@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(120deg, #2980b9, #8e44ad);
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        body:before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: rgb(72 71 71 / 27%);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .center {
+            /* position: absolute;
+            z-index: 2;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); */
+            background-color: white;
+            padding: 20px;
+            width: 500px;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+
+        }
+
+        h2 {
+            margin-bottom: 40px;
+        }
+
+        .inputs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .inputs .text_lab1,
+        .text_lab2 {
+            margin: 30px 0;
+            width: 100%;
+            position: relative;
+            left: 55%;
+            transform: translateX(-50%);
+        }
+
+        .inputs input:not([type="submit"]) {
+            padding: 15px 18px;
+            border: none;
+            outline: none;
+            border-bottom: 3px solid #ccc;
+            width: 90%;
+            background-color: transparent;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .inputs .text_lab1 label {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            font-size: 20px;
+            transform: translateY(-50%);
+            transition: 0.3s;
+            color: #ccc;
+        }
+
+        .inputs .text_lab2 label {
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+            bottom: 56%;
+            transform: translateY(50%);
+            transition: 0.3s;
+            color: #ccc;
+        }
+
+        .center .inputs .but_sub {
+            /* padding: 10px 100px; */
+            width: 88%;
+            height: 53px;
+            border: none;
+            border-radius: 50px;
+            background-color: #2196f3;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center .inputs .but_sub a {
+            text-align: center;
+            text-decoration: none;
+            color: white;
+        }
+
+        .inputs .text_lab1 span::before,
+        .inputs .text_lab2 span::before {
+            content: "";
+            height: 3px;
+            background-color: #2196f3;
+            position: absolute;
+            left: 0;
+            top: 45px;
+            width: 0;
+            transition: 0.5s;
+        }
+
+        .inputs .text_lab1 input:focus~span:before,
+        .inputs .text_lab2 input:focus~span:before {
+            width: 90%;
+            z-index: 2;
+        }
+
+        .hq {
+            text-align: center;
+            color: brown;
+            font-weight: normal;
+            font-size: 20px;
+            position: relative;
+            z-index: 5;
+            right: -40%;
+            bottom: -697px;
+            animation: animation 5s infinite linear;
+        }
+
+        @keyframes animation {
+            0% {
+                color: brown;
+            }
+
+            20% {
+                color: #8e44ad;
+            }
+
+            50% {
+                color: #2980b9;
+            }
+
+            80% {
+                color: yellowgreen;
+            }
+
+            100% {
+                color: cadetblue;
+            }
+        }
+
+        @media (max-width:767px) {
+            .hq {
+                right: -1%;
+                bottom: -755px;
+            }
+        }
+
+        .inputs .text_lab1 input:valid~span:before,
+        .inputs .text_lab2 input:valid~span:before {
+            width: 90%;
+            z-index: 2;
+        }
+
+
+
+        .inputs .text_lab1 input:focus~label {
+            /* .inputs .text_lab1 input:valid~label { */
+            top: 8%;
+            font-size: 19px;
+            color: #2196f3;
+        }
+
+        .inputs .text_lab2 input:focus~label {
+            /* .inputs .text_lab2 input:valid~label { */
+            bottom: 105%;
+            font-size: 19px;
+            color: #2196f3;
+        }
+
+        .inputs .text_lab1 input:valid~label {
+            /* .inputs .text_lab1 input:valid~label { */
+            top: 8%;
+            font-size: 19px;
+            color: #2196f3;
+        }
+
+        .inputs .text_lab2 input:valid~label {
+            /* .inputs .text_lab2 input:valid~label { */
+            bottom: 105%;
+            font-size: 19px;
+            color: #2196f3;
+        }
+
+        .inputs .but_sub:hover {
+            width: 90%;
+        }
+
+        .inputs .forgot:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .link {
+            text-decoration: none;
+            color: #2196f3;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .links .link1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 16px;
+            background-color: #f3eded;
+            box-shadow: 0 20px 25px -5px rgba(49, 52, 216, 0.1), 0 10px 10px -5px rgba(36, 128, 235, 0.04);
+            transition: 0.3s;
+        }
+
+        .links .link1 img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        .links .link1 h3 {
+            color: black;
+        }
+
+        .links .link2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 16px;
+            background-color: #f3eded;
+            transition: 0.4s;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+        }
+
+        .links .link2 img {
+            width: 34px;
+            margin-right: 10px;
+        }
+
+        .links .link2 h3 {
+            color: black;
+        }
+
+        .links .link2:hover {
+            background-color: #4057d9b8;
+            cursor: pointer;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+        }
+
+        .links .link1:hover {
+            background-color: #f44336ab;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+            cursor: pointer;
+        }
+
+        /* login 1 */
+
+        .cen2 {
+            width: 500px;
+            height: 681.5px;
+            background-color: white;
+            position: relative;
+            right: 0%;
+            top: 50%;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            background-color: royalblue;
+        }
+
+        .cen2 h2 {
+            font-weight: 600;
+            text-align: center;
+            color: white;
+        }
+
+        .cen2 img {
+            width: 100%;
+        }
+
+        .pa {
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: row-reverse;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 10%), 0 10px 10px -5px rgb(0 0 0 / 4%);
+            border-radius: 30px;
+        }
+
+        .pa .cen2 p {
+            text-align: center;
+            margin-top: -35px;
+            color: white;
+            width: 356px;
+            position: absolute;
+            left: 14%;
+            bottom: 5%;
+            font-size: 14px;
+        }
+
+
+
+        @media (max-width:767px) {
+            .pa {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .cen2 {
+                display: none;
+            }
+
+            .center {
+                width: fit-content;
+                border-radius: 30px;
+            }
+
+            .link1 {
+                margin-right: 14px;
+            }
+
+            .forgot {
+                margin: -5px 0 20px -118px !important;
+            }
+
+            .pa .center .image {
+                width: 20%;
+                position: absolute !important;
+                left: 39%;
+                top: -5% !important;
+                margin-bottom: -88px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hq">
+        <h4>Created By Sefoo333</h4>
+    </div>
+    <div class="pa">
+
+        <div class="cen2">
+            <img src="images/Tablet login-cuate.png" alt="Login">
+            <h2>Login For Join Your Community</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+
+        <!-- login 2 -->
+        <div class="center">
+            <img src="images/3237472.png" class="image" alt="" style="width: 19%;
+            position: relative;
+            left: 39%;
+            top: -11%;
+            margin-bottom: -88px;">
+            <h2 style="text-align: center;">Welcome Back !</h2>
+            <div class="links">
+                <div class="link1">
+                    <img src="images/google.png" alt="Google">
+                    <h3>Google</h3>
+                </div>
+                <div class="link2">
+                    <img src="images/fb.png" alt="Fecbook">
+                    <h3>Fecbook</h3>
+                </div>
+            </div>
+            <div class="or" style="text-align: center; color: #ccc; margin-top: 30px;">or</div>
+            <form action="" class="inputs">
+                <div class="text_lab1">
+                    <input type="text" name="user" id="user" required>
+                    <span></span>
+                    <label for="user">Username</label>
+                </div>
+                <div class="text_lab2">
+                    <input type="password" name="password" id="password" required>
+                    <span></span>
+                    <label for="password">Password</label>
+                </div>
+                <div class="forgot" style="color: #ccc;
+                margin: -5px 0 20px -267px;
+            font-size: 17px;">Forget Password?</div>
+                <div class="but_sub">
+                    <a href="#">Login</a>
+                </div>
+
+                <p class="up" style=" text-align: center;
+            margin-top: 40px;
+            font-size: 17px;
+            color: #ccc;">New Member? ,<a href="#" class="link">sign up</a></p>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="par"></div>
+
+</body>
+
+</html>
